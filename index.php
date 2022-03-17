@@ -1,3 +1,8 @@
+<?php
+session_start();
+ob_start();
+?>
+
 <?php include 'header.php'; ?>
 
 <?php include 'homepage-slider.php'; ?>

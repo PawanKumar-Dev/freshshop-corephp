@@ -33,7 +33,7 @@ if (!isset($_SESSION['login'])) {
       <div class="row">
         <div class="col-12">
           <div class="card my-4">
-          <?php include 'alert.php'; ?>
+            <?php include 'alert.php'; ?>
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
                 <h6 class="text-white text-capitalize ps-3">Products</h6>
@@ -57,43 +57,43 @@ if (!isset($_SESSION['login'])) {
                   </thead>
 
                   <tbody>
-                  <?php 
+                    <?php
                     $sql = "select * from products";
                     $result = mysqli_query($connection, $sql);
 
-                    if (mysqli_num_rows($result) > 0):
-                      while($record = mysqli_fetch_assoc($result)): ?>
+                    if (mysqli_num_rows($result) > 0) :
+                      while ($record = mysqli_fetch_assoc($result)) : ?>
 
-                    <tr>
-                      <td>
-                      <p class="text-sm font-weight-bold mb-0 text-center"><?php echo $record['product_name']; ?></p>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0"><?php echo $record['description']; ?></p>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0"><?php echo $record['category']; ?></p>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">$<?php echo $record['price']; ?></p>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0"><?php echo $record['stock']; ?></p>
-                      </td>
-                      <td>
-                        <img src="upload/<?php echo $record['image_link']; ?>" class="avatar avatar-sm rounded-circle me-2" height="90">
-                      </td>
-                      <td>
-                        <a href="edit_product.php?id=<?php echo $record['id']; ?>" class="btn btn-sm btn-warning">Edit</a>
-                      </td>
-                      <td>
-                      <a href="delete_product.php?id=<?php echo $record['id']; ?>" class="btn btn-sm btn-danger">Delete</a>
-                      </td>
-                    </tr>
+                        <tr>
+                          <td>
+                            <p class="text-sm font-weight-bold mb-0 text-center"><?php echo $record['product_name']; ?></p>
+                          </td>
+                          <td>
+                            <p class="text-sm font-weight-bold mb-0"><?php echo $record['description']; ?></p>
+                          </td>
+                          <td>
+                            <p class="text-sm font-weight-bold mb-0"><?php echo $record['category']; ?></p>
+                          </td>
+                          <td>
+                            <p class="text-sm font-weight-bold mb-0">$<?php echo $record['price']; ?></p>
+                          </td>
+                          <td>
+                            <p class="text-sm font-weight-bold mb-0"><?php echo $record['stock']; ?></p>
+                          </td>
+                          <td>
+                            <img src="upload/<?php echo $record['image_link']; ?>" class="avatar avatar-sm rounded-circle me-2" height="90">
+                          </td>
+                          <td>
+                            <a href="edit_product.php?edit_id=<?php echo $record['id']; ?>" class="btn btn-sm btn-warning">Edit</a>
+                          </td>
+                          <td>
+                            <a href="admin/delete_product.php?del_id=<?php echo $record['id']; ?>" class="btn btn-sm btn-danger">Delete</a>
+                          </td>
+                        </tr>
 
                     <?php
-                        endwhile;
-                      endif;
+                      endwhile;
+                    endif;
                     ?>
                   </tbody>
 

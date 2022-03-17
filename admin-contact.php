@@ -17,7 +17,7 @@ if (!isset($_SESSION['login'])) {
   <meta name="robots" content="noindex">
 
   <?php include 'favicon.php'; ?>
-  <title>Contact Page</title>
+  <title>Contact Us Page</title>
   <?php include 'admin-csslink.php'; ?>
 </head>
 
@@ -30,69 +30,52 @@ if (!isset($_SESSION['login'])) {
     <?php include 'admin-topbar.php'; ?>
 
     <div class="container-fluid px-2 px-md-4">
-      <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('images/profile.jpg');">
-        <span class="mask bg-gradient-primary opacity-6"></span>
-      </div>
-
-      <div class="card card-body mx-3 mx-md-4 mt-n6">
-        <div class="row gx-4 mb-2">
-          <div class="col-auto">
-            <div class="avatar avatar-xl position-relative">
-              <img src="admin/assets/img/bruce-mars.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
-            </div>
-          </div>
-          <div class="col-auto my-auto">
-            <div class="h-100">
-              <h5 class="mb-1">Edit Your Contact Info</h5>
-              <p class="mb-0 font-weight-normal text-sm">Admin</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <?php include 'alert.php'; ?>
-
       <div class="row">
         <div class="col-md-12 mt-4">
           <div class="card">
-            <div class="card-header pb-0 px-3">
-              <h6 class="mb-0">Current Contact Info</h6>
+            <?php include 'alert.php'; ?>
+
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">Edit Contact Page</h6>
+              </div>
             </div>
+
             <div class="card-body pt-4 p-3">
               <form role="form" action="admin/contactus-update.php" method="post" autocomplete="off">
-                
-              <?php 
+
+                <?php
                 $sql = "select * from contactpage";
                 $result = mysqli_query($connection, $sql);
 
-                if (mysqli_num_rows($result) > 0):
-                  while($record = mysqli_fetch_assoc($result)): ?>
+                if (mysqli_num_rows($result) > 0) :
+                  while ($record = mysqli_fetch_assoc($result)) : ?>
 
-                <div>Contact Info</div>
-                <div class="input-group input-group-outline mb-3">
-                  <textarea class="form-control" name="info" id="info" cols="30" rows="5" required><?php echo $record['info']; ?></textarea>
-                </div>
-                
-                <div>Address</div>
-                <div class="input-group input-group-outline mb-3">
-                  <input type="text" class="form-control" name="address" required value="<?php echo $record['address']; ?>">
-                </div>
+                    <div>Contact Info</div>
+                    <div class="input-group input-group-outline mb-3">
+                      <textarea class="form-control" name="info" id="info" cols="30" rows="5" required><?php echo $record['info']; ?></textarea>
+                    </div>
 
-                <div>Phone</div>
-                <div class="input-group input-group-outline mb-3">
-                  <input type="tel" class="form-control" name="phone" required value="<?php echo $record['phone']; ?>">
-                </div>
+                    <div>Address</div>
+                    <div class="input-group input-group-outline mb-3">
+                      <input type="text" class="form-control" name="address" required value="<?php echo $record['address']; ?>">
+                    </div>
 
-                <div>Email</div>
-                <div class="input-group input-group-outline mb-3">
-                  <input type="email" class="form-control" name="email" required value="<?php echo $record['email']; ?>">
-                </div>
+                    <div>Phone</div>
+                    <div class="input-group input-group-outline mb-3">
+                      <input type="tel" class="form-control" name="phone" required value="<?php echo $record['phone']; ?>">
+                    </div>
 
-                <input type="hidden" name="up_id" value="<?php echo $record['id']; ?>">
+                    <div>Email</div>
+                    <div class="input-group input-group-outline mb-3">
+                      <input type="email" class="form-control" name="email" required value="<?php echo $record['email']; ?>">
+                    </div>
+
+                    <input type="hidden" name="up_id" value="<?php echo $record['id']; ?>">
 
                 <?php
-                    endwhile;
-                  endif;
+                  endwhile;
+                endif;
                 ?>
 
                 <div class="text-center">
