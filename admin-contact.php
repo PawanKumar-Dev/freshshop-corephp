@@ -70,22 +70,22 @@ if (!isset($_SESSION['login'])) {
 
                 <div>Contact Info</div>
                 <div class="input-group input-group-outline mb-3">
-                  <textarea class="form-control" name="info" id="info" cols="30" rows="5"><?php echo $record['info']; ?></textarea>
+                  <textarea class="form-control" name="info" id="info" cols="30" rows="5" required><?php echo $record['info']; ?></textarea>
                 </div>
                 
                 <div>Address</div>
                 <div class="input-group input-group-outline mb-3">
-                  <input type="text" class="form-control" name="address" value="<?php echo $record['address']; ?>">
+                  <input type="text" class="form-control" name="address" required value="<?php echo $record['address']; ?>">
                 </div>
 
                 <div>Phone</div>
                 <div class="input-group input-group-outline mb-3">
-                  <input type="tel" class="form-control" name="phone" value="<?php echo $record['phone']; ?>">
+                  <input type="tel" class="form-control" name="phone" required value="<?php echo $record['phone']; ?>">
                 </div>
 
                 <div>Email</div>
                 <div class="input-group input-group-outline mb-3">
-                  <input type="email" class="form-control" name="email" value="<?php echo $record['email']; ?>">
+                  <input type="email" class="form-control" name="email" required value="<?php echo $record['email']; ?>">
                 </div>
 
                 <input type="hidden" name="up_id" value="<?php echo $record['id']; ?>">
