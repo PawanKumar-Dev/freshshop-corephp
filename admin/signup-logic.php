@@ -6,10 +6,10 @@ require 'connect.php';
 
 if(isset($_POST['signup'])){
 
-  $username = sanitize($_POST['username']);
-  $email = sanitize($_POST['email']);
-  $name = sanitize($_POST['name']);
-  $password = sanitize($_POST['password']);
+  $username = $_POST['username'];
+  $email = $_POST['email'];
+  $name = $_POST['name'];
+  $password = $_POST['password'];
 
   $username = mysqli_real_escape_string($connection, $username);
   $email = mysqli_real_escape_string($connection, $email);

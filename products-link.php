@@ -41,10 +41,8 @@
             <div class="mask-icon">
               <ul>
                 <li><a href="shop-detail.php?id=<?php echo $record['id']; ?>" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                <li><a href="wishlist.php?id=<?php echo $record['id']; ?>" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
               </ul>
-              <a class="cart" href="cart.php?id=<?php echo $record['id']; ?>">Add to Cart</a>
+              <a class="cart" href="cart.php?pro_id=<?php echo $record['id']; ?>">Add to Cart</a>
             </div>
           </div>
           <div class="why-text">

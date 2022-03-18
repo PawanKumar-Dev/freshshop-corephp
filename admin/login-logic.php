@@ -6,8 +6,8 @@ require 'connect.php';
 
 if (isset($_POST['login'])) {
 	
-	$username = sanitize($_POST['username']);
-  $password = sanitize($_POST['password']);
+	$username = $_POST['username'];
+  $password = $_POST['password'];
 
   $getHashSql = "select password from users where username = '$username'";
   $dbpass = mysqli_query($connection, $getHashSql);
@@ -20,6 +20,8 @@ if (isset($_POST['login'])) {
 
   			$_SESSION['login'] = $username;
 	  		$_SESSION['msg'] = "Login Successfully!";
+
+				$_SESSION['cart'] = '';
 
   			if (isset($_POST['remember'])) {
 
