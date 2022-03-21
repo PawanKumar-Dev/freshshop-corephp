@@ -1,6 +1,10 @@
 <?php
 session_start();
 ob_start();
+
+if (isset($_SESSION['login'])) {
+  header('Location: http://localhost/freshshop/index.php');
+}
 ?>
 
 <!DOCTYPE html>

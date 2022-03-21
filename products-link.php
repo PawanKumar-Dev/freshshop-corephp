@@ -11,19 +11,8 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="special-menu text-center">
-          <div class="button-group filter-button-group">
-            <button class="active" data-filter="*">All</button>
-            <button data-filter=".best-seller">Best seller</button>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <div class="row special-list">
-
     <?php
       $sql = "select * from products limit 4";
       $result = mysqli_query($connection, $sql);

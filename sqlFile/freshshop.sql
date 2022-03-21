@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2022 at 04:15 PM
+-- Generation Time: Mar 21, 2022 at 11:36 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -83,6 +83,50 @@ INSERT INTO `contactpage` (`id`, `info`, `address`, `phone`, `email`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `customers`
+--
+
+CREATE TABLE `customers` (
+  `id` int(11) NOT NULL,
+  `fullname` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `address` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`id`, `fullname`, `email`, `address`) VALUES
+(1, 'Pawan Kumar', 'pk687376@gmail.com', 'Shahbad dairy Delhi 110042, F-4, Shahbad Dairy'),
+(2, 'Satish Lal', 'pk@gmail.com', 'Temproray address right');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `product_name` varchar(255) NOT NULL,
+  `price` float NOT NULL,
+  `qty` int(5) NOT NULL,
+  `subtotal` float NOT NULL,
+  `grandtotal` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `product_name`, `price`, `qty`, `subtotal`, `grandtotal`) VALUES
+(1, 'Chilles', 170, 1, 170, 170),
+(2, 'Oranges', 74, 3, 222, 222);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `products`
 --
 
@@ -158,6 +202,18 @@ ALTER TABLE `contactpage`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `customers`
+--
+ALTER TABLE `customers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -190,6 +246,18 @@ ALTER TABLE `banners`
 --
 ALTER TABLE `contactpage`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `customers`
+--
+ALTER TABLE `customers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `products`

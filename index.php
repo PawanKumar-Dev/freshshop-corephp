@@ -13,8 +13,6 @@ ob_start();
 
 <?php include 'products-link.php'; ?>
 
-<?php include 'latest-blog-links.php'; ?>
-
 <?php include 'instagram-feed.php'; ?>
 
 <?php include 'footer.php'; ?>

@@ -46,7 +46,6 @@
                         <li class="nav-item active"><a class="nav-link" href="index.php">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="about.php">About Us</a></li>
                         <li class="nav-item"><a href="shop.php" class="nav-link">SHOP</a></li>
-                        <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
                         <li class="nav-item"><a class="nav-link" href="contactus.php">Contact Us</a></li>
                     </ul>
                 </div>
@@ -56,20 +55,13 @@
                 <div class="attr-nav">
                     <ul>
                         <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
-                        <li class="side-menu">
-                            <a href="#">
-                                <i class="fa fa-shopping-bag"></i>
-                                <span class="badge">3</span>
-                                <p>My Cart</p>
-                            </a>
+                        <li>
+                            <a href="cart.php"><i class="fa fa-shopping-bag"></i> My Cart</a>
                         </li>
                     </ul>
                 </div>
                 <!-- End Atribute Navigation -->
             </div>
-
-            <?php include 'sidenav-cart.php'; ?>
-
         </nav>
         <!-- End Navigation -->
     </header>
