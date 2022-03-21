@@ -6,11 +6,11 @@ require 'connect.php';
 
 if (isset($_POST['placeorder'])) {
 
-  $product_name = $_SESSION['cart']['product_name'];
-  $price = $_SESSION['cart']['price'];
-  $qty = $_SESSION['cart']['qty'];
-  $subtotal = $_SESSION['cart']['subtotal'];
-  $grandtotal = $_SESSION['cart']['grandtotal'];
+  $product_name = $_SESSION['cartupdate']['product_name'];
+  $price = $_SESSION['cartupdate']['price'];
+  $qty = $_SESSION['cartupdate']['qty'];
+  $subtotal = $_SESSION['cartupdate']['subtotal'];
+  $grandtotal = $_SESSION['cartupdate']['grandtotal'];
 
   $fullname = $_POST['fullname'];
   $email = $_POST['email'];

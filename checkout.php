@@ -2,7 +2,7 @@
 session_start();
 ob_start();
 
-if (!isset($_SESSION['cart'])) {
+if (!isset($_SESSION['cartupdate'])) {
   header('Location: http://localhost/freshshop/index.php');
 }
 ?>
@@ -62,8 +62,8 @@ if (!isset($_SESSION['cart'])) {
                 </div>
                 <div class="rounded p-2 bg-light">
                   <div class="media mb-2 border-bottom">
-                    <div class="media-body"> Name: <?php echo $_SESSION['cart']['product_name'] ?>
-                      <div class="small text-muted">Price: $<?php echo $_SESSION['cart']['price'] ?> <span class="mx-2">|</span> Qty: <?php echo $_SESSION['cart']['qty'] ?> <span class="mx-2">|</span> Subtotal: $ <?php echo $_SESSION['cart']['subtotal'] ?></div>
+                    <div class="media-body"> Name: <?php echo $_SESSION['cartupdate']['product_name'] ?>
+                      <div class="small text-muted">Price: $<?php echo $_SESSION['cartupdate']['price'] ?> <span class="mx-2">|</span> Qty: <?php echo $_SESSION['cartupdate']['qty'] ?> <span class="mx-2">|</span> Subtotal: $ <?php echo $_SESSION['cartupdate']['subtotal'] ?></div>
                     </div>
                   </div>
                 </div>
@@ -82,7 +82,7 @@ if (!isset($_SESSION['cart'])) {
                 <hr class="my-1">
                 <div class="d-flex">
                   <h4>Sub Total</h4>
-                  <div class="ml-auto font-weight-bold"> $ <?php echo $_SESSION['cart']['subtotal'] ?></div>
+                  <div class="ml-auto font-weight-bold"> $ <?php echo $_SESSION['cartupdate']['subtotal'] ?></div>
                 </div>
                 <div class="d-flex">
                   <h4>Shipping Cost</h4>
@@ -91,7 +91,7 @@ if (!isset($_SESSION['cart'])) {
                 <hr>
                 <div class="d-flex gr-total">
                   <h5>Grand Total</h5>
-                  <div class="ml-auto h5"> $ <?php echo $_SESSION['cart']['grandtotal'] ?></div>
+                  <div class="ml-auto h5"> $ <?php echo $_SESSION['cartupdate']['grandtotal'] ?></div>
                 </div>
                 <hr>
               </div>

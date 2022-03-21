@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2022 at 11:36 PM
+-- Generation Time: Mar 22, 2022 at 12:49 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -98,8 +98,7 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `fullname`, `email`, `address`) VALUES
-(1, 'Pawan Kumar', 'pk687376@gmail.com', 'Shahbad dairy Delhi 110042, F-4, Shahbad Dairy'),
-(2, 'Satish Lal', 'pk@gmail.com', 'Temproray address right');
+(4, 'Pawan Kumar', 'pk687376@gmail.com', 'Shahbad dairy Delhi 110042, F-4, Shahbad Dairy');
 
 -- --------------------------------------------------------
 
@@ -121,8 +120,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `product_name`, `price`, `qty`, `subtotal`, `grandtotal`) VALUES
-(1, 'Chilles', 170, 1, 170, 170),
-(2, 'Oranges', 74, 3, 222, 222);
+(4, 'Guave', 60, 5, 300, 300);
 
 -- --------------------------------------------------------
 
@@ -251,13 +249,13 @@ ALTER TABLE `contactpage`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `products`

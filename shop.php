@@ -63,7 +63,7 @@
                               <ul>
                                 <li><a href="shop-detail.php?id=<?php echo $record['id']; ?>" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
                               </ul>
-                              <a class="cart" href="cart.php?pro_id=<?php echo $record['id']; ?>">Add to Cart</a>
+                              <a class="cart" href="admin/add_to_cart.php?pro_id=<?php echo $record['id']; ?>">Add to Cart</a>
                             </div>
                           </div>
                           <div class="why-text">

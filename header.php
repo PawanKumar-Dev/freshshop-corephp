@@ -19,7 +19,6 @@
     <meta name="robots" content="noindex">
 
     <?php include 'favicon.php'; ?>
-
     <?php include 'css-links.php'; ?>
 </head>
 
@@ -56,7 +55,9 @@
                     <ul>
                         <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
                         <li>
-                            <a href="cart.php"><i class="fa fa-shopping-bag"></i> My Cart</a>
+                            <a href="cart.php"><i class="fa fa-shopping-bag"></i> My Cart 
+                            <span><?php if(isset($_SESSION['cart'])) { echo "1"; } ?></span>
+                            </a>
                         </li>
                     </ul>
                 </div>

@@ -2,7 +2,7 @@
 session_start();
 ob_start();
 
-if (!isset($_GET['pro_id'])) {
+if (!isset($_SESSION['cart'])) {
   header('Location: http://localhost/freshshop/shop.php');
 }
 ?>
@@ -15,7 +15,7 @@ if (!isset($_GET['pro_id'])) {
       <div class="col-lg-12">
         <h2>Cart</h2>
         <ul class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#">Shop</a></li>
+          <li class="breadcrumb-item"><a href="shop.php">Shop</a></li>
           <li class="breadcrumb-item active">Cart</li>
         </ul>
       </div>
@@ -44,53 +44,40 @@ if (!isset($_GET['pro_id'])) {
 
             <tbody>
               <form action="admin/checkout-logic.php" method="post">
-                <?php
-                if (isset($_GET['pro_id'])) :
-                  $proid = $_GET['pro_id'];
-                  $sql = "select * from products where id = $proid";
+                <tr>
+                  <td class="thumbnail-img">
+                    <a href="#">
+                      <img class="img-fluid" src="images/<?= $_SESSION['cart']['image_link']; ?>">
+                    </a>
+                  </td>
 
-                  $result = mysqli_query($connection, $sql);
-                  if (mysqli_num_rows($result) > 0) :
-                    while ($row = mysqli_fetch_assoc($result)) : ?>
-                      <tr>
-                        <td class="thumbnail-img">
-                          <a href="#">
-                            <img class="img-fluid" src="images/<?= $row['image_link']; ?>">
-                          </a>
-                        </td>
+                  <td class="name-pr">
+                    <a href="shop-detail.php?<?= $_SESSION['cart']['pro_id']; ?>">
+                      <?= $_SESSION['cart']['product_name']; ?>
+                      <input type="hidden" name="product_name" value="<?= $_SESSION['cart']['product_name']; ?>">
+                    </a>
+                  </td>
 
-                        <td class="name-pr">
-                          <a href="shop-detail.php?<?= $row['id']; ?>">
-                            <?= $row['product_name']; ?>
-                            <input type="hidden" name="product_name" value="<?= $row['product_name']; ?>">
-                          </a>
-                        </td>
+                  <td class="price-pr">
+                    <p>$ <?= $_SESSION['cart']['price']; ?></p>
+                    <input type="hidden" name="price" id="price" value="<?= $_SESSION['cart']['price']; ?>">
+                  </td>
 
-                        <td class="price-pr">
-                          <p>$ <?= $row['price']; ?></p>
-                          <input type="hidden" name="price" id="price" value="<?= $row['price']; ?>">
-                        </td>
+                  <td class="quantity-box">
+                    <input type="number" value="1" min="1" class="c-input-text qty text" name="qty" id="qty" onchange="calculateSubTotal(this.value);">
+                  </td>
 
-                        <td class="quantity-box">
-                          <input type="number" value="1" min="0" class="c-input-text qty text" name="qty" id="qty" onchange="calculateSubTotal(this.value);">
-                        </td>
+                  <td class="total-pr">
+                    <p>$ <span id="subtotal"><?= $_SESSION['cart']['price']; ?></span></p>
+                    <input type="hidden" id="subtotal2" name="subtotal" value="<?= $_SESSION['cart']['price']; ?>">
+                  </td>
 
-                        <td class="total-pr">
-                          <p>$ <span id="subtotal"><?= $row['price']; ?></span></p>
-                          <input type="hidden" id="subtotal2" name="subtotal" value="<?= $row['price']; ?>">
-                        </td>
-
-                        <td class="remove-pr">
-                          <a href="#">
-                            <i class="fas fa-times"></i>
-                          </a>
-                        </td>
-                      </tr>
-                <?php
-                    endwhile;
-                  endif;
-                endif;
-                ?>
+                  <td class="remove-pr">
+                    <a href="#">
+                      <i class="fas fa-times"></i>
+                    </a>
+                  </td>
+                </tr>
             </tbody>
           </table>
         </div>
@@ -104,30 +91,17 @@ if (!isset($_GET['pro_id'])) {
       <div class="col-lg-4 col-sm-12">
         <div class="order-box">
           <h3>Order summary</h3>
-
-          <?php
-          if (isset($_GET['pro_id'])) :
-            $sql = "select price from products where id = $proid";
-
-            $result = mysqli_query($connection, $sql);
-            if (mysqli_num_rows($result) > 0) :
-              while ($row = mysqli_fetch_assoc($result)) : ?>
-                <div class="d-flex">
-                  <h4>Shipping Cost</h4>
-                  <div class="ml-auto font-weight-bold"> Free </div>
-                </div>
-                <hr>
-                <div class="d-flex gr-total">
-                  <h5>Grand Total</h5>
-                  <div class="ml-auto h5"> $ <span id="grandtotal"><?= $row['price']; ?></span>
-                  <input type="hidden" name="grandtotal" id="grandtotal2" value="<?= $row['price']; ?>">
-                  </div>
-                </div>
-          <?php
-              endwhile;
-            endif;
-          endif;
-          ?>
+          <div class="d-flex">
+            <h4>Shipping Cost</h4>
+            <div class="ml-auto font-weight-bold"> Free </div>
+          </div>
+          <hr>
+          <div class="d-flex gr-total">
+            <h5>Grand Total</h5>
+            <div class="ml-auto h5"> $ <span id="grandtotal"><?= $_SESSION['cart']['price']; ?></span>
+              <input type="hidden" name="grandtotal" id="grandtotal2" value="<?= $_SESSION['cart']['price']; ?>">
+            </div>
+          </div>
           <hr>
         </div>
       </div>
