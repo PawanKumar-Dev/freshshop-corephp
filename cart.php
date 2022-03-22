@@ -73,7 +73,7 @@ if (!isset($_SESSION['cart'])) {
                   </td>
 
                   <td class="remove-pr">
-                    <a href="#">
+                    <a href="admin/remove_cart.php?pro_id=<?= $_SESSION['cart']['pro_id']; ?>">
                       <i class="fas fa-times"></i>
                     </a>
                   </td>
