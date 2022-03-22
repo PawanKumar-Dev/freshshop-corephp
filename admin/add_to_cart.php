@@ -29,7 +29,7 @@ if (isset($_GET['pro_id'])) {
     }   
   }
 
-  header('Location: http://localhost/freshshop/index.php');
+  header('Location: http://localhost/freshshop/cart.php');
   exit;
 }
 

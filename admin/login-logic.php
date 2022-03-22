@@ -21,8 +21,6 @@ if (isset($_POST['login'])) {
   			$_SESSION['login'] = $username;
 	  		$_SESSION['msg'] = "Login Successfully!";
 
-				$_SESSION['cart'] = '';
-
   			if (isset($_POST['remember'])) {
 
 		  		setcookie("loginUserCookie", $username, time() + 86400 ,  "/");
