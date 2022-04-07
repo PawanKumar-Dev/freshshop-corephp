@@ -1,4 +1,4 @@
-<?php include 'header.php'; ?>
+<?php include_once 'header.php'; ?>
 
 <!-- Start All Title Box -->
 <div class="all-title-box">
@@ -65,6 +65,4 @@
 </div>
 <!-- End About Page -->
 
-<?php include 'instagram-feed.php'; ?>
-
-<?php include 'footer.php'; ?>
+<?php include_once 'footer.php'; ?>

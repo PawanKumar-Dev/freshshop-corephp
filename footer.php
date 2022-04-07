@@ -94,7 +94,7 @@
 
     <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
 
-    <?php include 'jslink.php'; ?>
+    <?php include_once 'jslink.php'; ?>
 </body>
 
 </html>

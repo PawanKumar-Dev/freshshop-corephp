@@ -1,7 +1,7 @@
 <?php
 session_start();
 ob_start();
-include 'admin/connect.php';
+include_once 'admin/connect.php';
 
 if (!isset($_SESSION['login'])) {
   header('Location: http://localhost/freshshop/login.php');
@@ -17,23 +17,23 @@ if (!isset($_SESSION['login'])) {
   <meta name="author" content="Pawan">
   <meta name="robots" content="noindex">
 
-  <?php include 'favicon.php'; ?>
+  <?php include_once 'favicon.php'; ?>
   <title>About Us Page</title>
-  <?php include 'admin-csslink.php'; ?>
+  <?php include_once 'admin-csslink.php'; ?>
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
-  <?php include 'admin-sidenav.php'; ?>
+  <?php include_once 'admin-sidenav.php'; ?>
 
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
 
-    <?php include 'admin-topbar.php'; ?>
+    <?php include_once 'admin-topbar.php'; ?>
 
     <div class="container-fluid py-4">
       <div class="row">
         <div class="col-12">
           <div class="card my-4">
-            <?php include 'alert.php'; ?>
+            <?php include_once 'alert.php'; ?>
 
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
@@ -79,8 +79,8 @@ if (!isset($_SESSION['login'])) {
         </div>
       </div>
 
-      <?php include 'adminpanel_copyright.php'; ?>
+      <?php include_once 'adminpanel_copyright.php'; ?>
     </div>
   </main>
 
-  <?php include 'admin-footer.php'; ?>
+  <?php include_once 'admin-footer.php'; ?>

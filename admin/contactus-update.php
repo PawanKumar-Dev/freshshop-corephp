@@ -2,9 +2,9 @@
 session_start();
 ob_start();
 
-require 'connect.php';
+require_once 'connect.php';
 
-if(isset($_POST['update'])){
+if(isset($_POST['update'])) {
 
 	$info = $_POST['info'];
   $address = $_POST['address'];

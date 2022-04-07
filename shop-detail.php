@@ -3,7 +3,7 @@ if (!isset($_GET['id'])) {
   header('Location: http://localhost/freshshop/shop.php');
 }
 ?>
-<?php include 'header.php'; ?>
+<?php include_once 'header.php'; ?>
 
 <!-- Start All Title Box -->
 <div class="all-title-box">
@@ -46,7 +46,7 @@ if (!isset($_GET['id'])) {
 
               <div class="price-box-bar">
                 <div class="cart-and-bay-btn">
-                  <a class="btn hvr-hover" href="cart.php?pro_id=<?php echo $record['id']; ?>">Add to cart</a>
+                  <a class="btn hvr-hover" href="admin/add_to_cart.php?pro_id=<?php echo $record['id']; ?>">Add to cart</a>
                 </div>
               </div>
             </div>
@@ -58,13 +58,11 @@ if (!isset($_GET['id'])) {
     </div>
 
     <div class="row my-5">
-      <?php include 'shop-reviews.php'; ?>
+      <?php include_once 'shop-reviews.php'; ?>
     </div>
 
   </div>
 </div>
 <!-- End Cart -->
 
-<?php include 'instagram-feed.php'; ?>
-
-<?php include 'footer.php'; ?>
+<?php include_once 'footer.php'; ?>

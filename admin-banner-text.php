@@ -33,7 +33,7 @@ if (!isset($_SESSION['login'])) {
       <div class="row">
         <div class="col-12">
           <div class="card my-4">
-            <?php include 'alert.php'; ?>
+            <?php include_once 'alert.php'; ?>
 
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
@@ -75,8 +75,8 @@ if (!isset($_SESSION['login'])) {
         </div>
       </div>
 
-      <?php include 'adminpanel_copyright.php'; ?>
+      <?php include_once 'adminpanel_copyright.php'; ?>
     </div>
   </main>
 
-  <?php include 'admin-footer.php'; ?>
+  <?php include_once 'admin-footer.php'; ?>

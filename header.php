@@ -1,4 +1,9 @@
-<?php include 'admin/connect.php'; ?>
+<?php
+session_start();
+ob_start();
+
+include_once 'admin/connect.php'; 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,12 +23,12 @@
     <meta name="author" content="Pawan">
     <meta name="robots" content="noindex">
 
-    <?php include 'favicon.php'; ?>
-    <?php include 'css-links.php'; ?>
+    <?php include_once 'favicon.php'; ?>
+    <?php include_once 'css-links.php'; ?>
 </head>
 
 <body>
-    <?php include 'top-bar.php'; ?>
+    <?php include_once 'top-bar.php'; ?>
 
     <!-- Start Main Top -->
     <header class="main-header">
@@ -56,7 +61,7 @@
                         <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
                         <li>
                             <a href="cart.php"><i class="fa fa-shopping-bag"></i> My Cart 
-                            <span><?php if(isset($_SESSION['cart'])) { echo "1"; } ?></span>
+                            <span></span>
                             </a>
                         </li>
                     </ul>
@@ -68,4 +73,4 @@
     </header>
     <!-- End Main Top -->
 
-    <?php include 'search-nav.php'; ?>
+    <?php include_once 'search-nav.php'; ?>

@@ -2,7 +2,7 @@
 session_start();
 ob_start();
 
-require 'connect.php';
+require_once 'connect.php';
 
 if (isset($_POST['add_product'])) {
 

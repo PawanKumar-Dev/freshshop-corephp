@@ -1,12 +1,8 @@
-<?php
-session_start();
-ob_start();
+<?php include_once 'admin/connect.php'; ?>
 
-if (!isset($_SESSION['cart'])) {
-  header('Location: http://localhost/freshshop/shop.php');
-}
-?>
-<?php include 'header.php'; ?>
+<?php include_once 'header.php'; ?>
+
+    <?php include_once 'search-nav.php'; ?>
 
 <!-- Start All Title Box -->
 <div class="all-title-box">
@@ -38,46 +34,56 @@ if (!isset($_SESSION['cart'])) {
                 <th>Price</th>
                 <th>Quantity</th>
                 <th>Sub Total</th>
+                <th>Update</th>
                 <th>Remove</th>
               </tr>
             </thead>
 
             <tbody>
-              <form action="admin/checkout-logic.php" method="post">
+                <?php $grandtotal = 0;?>
+                <?php foreach ($_SESSION['cart'] as $cart): ?>
+                <?php $subtotal =  $cart['price'] * $cart['qty']; ?>
                 <tr>
                   <td class="thumbnail-img">
                     <a href="#">
-                      <img class="img-fluid" src="images/<?= $_SESSION['cart']['image_link']; ?>">
+                      <img class="img-fluid" src="images/<?= $cart['image_link']; ?>">
                     </a>
                   </td>
 
                   <td class="name-pr">
-                    <a href="shop-detail.php?<?= $_SESSION['cart']['pro_id']; ?>">
-                      <?= $_SESSION['cart']['product_name']; ?>
-                      <input type="hidden" name="product_name" value="<?= $_SESSION['cart']['product_name']; ?>">
+                    <a href="shop-detail.php?<?= $cart['pro_id']; ?>">
+                      <?= $cart['product_name']; ?>
+                      
                     </a>
                   </td>
 
                   <td class="price-pr">
-                    <p>$ <?= $_SESSION['cart']['price']; ?></p>
-                    <input type="hidden" name="price" id="price" value="<?= $_SESSION['cart']['price']; ?>">
+                    <p>$ <?= $cart['price']; ?></p>
+                    <input type="hidden" name="price" id="price" value="<?= $cart['price']; ?>">
                   </td>
 
                   <td class="quantity-box">
-                    <input type="number" value="1" min="1" class="c-input-text qty text" name="qty" id="qty" onchange="calculateSubTotal(this.value);">
+                    <form action="admin/update_cart.php" method="post">
+                      <input type="number" value="<?= $cart['qty']; ?>" min="1" class="c-input-text qty text" name="qty">
                   </td>
 
                   <td class="total-pr">
-                    <p>$ <span id="subtotal"><?= $_SESSION['cart']['price']; ?></span></p>
-                    <input type="hidden" id="subtotal2" name="subtotal" value="<?= $_SESSION['cart']['price']; ?>">
+                    <p>$ <span><?= $subtotal ?></span></p>
+                    <input type="hidden" name="subtotal" value="<?= $subtotal; ?>">
                   </td>
 
                   <td class="remove-pr">
-                    <a href="admin/remove_cart.php?pro_id=<?= $_SESSION['cart']['pro_id']; ?>">
-                      <i class="fas fa-times"></i>
-                    </a>
+                      <input type="hidden" name="pro_id" value="<?= $cart['pro_id']; ?>">
+                      <input type="submit" name="update" value="Update" class="btn btn-sm btn-success">
+                    </form>
+                  </td>
+
+                  <td class="remove-pr">
+                    <a href="admin/remove_cart.php?pro_id=<?= $cart['pro_id']; ?>" class="btn btn-sm btn-danger">Remove</a>
                   </td>
                 </tr>
+                <?php $grandtotal +=  $subtotal; ?>
+                <?php endforeach;?>
             </tbody>
           </table>
         </div>
@@ -98,32 +104,22 @@ if (!isset($_SESSION['cart'])) {
           <hr>
           <div class="d-flex gr-total">
             <h5>Grand Total</h5>
-            <div class="ml-auto h5"> $ <span id="grandtotal"><?= $_SESSION['cart']['price']; ?></span>
-              <input type="hidden" name="grandtotal" id="grandtotal2" value="<?= $_SESSION['cart']['price']; ?>">
+            <div class="ml-auto h5">
+              $ <span id="grandtotal"><?= $grandtotal;?></span>
             </div>
           </div>
           <hr>
         </div>
       </div>
-      <div class="col-12 d-flex shopping-box"><input type="submit" class="ml-auto btn hvr-hover" name="checkout" value="Checkout"></div>
-      </form>
+
+      <div class="col-12 d-flex shopping-box">
+        <a class="ml-auto btn hvr-hover green-color" href="">Checkout</a>
+      </div>
+      
     </div>
 
   </div>
 </div>
 <!-- End Cart -->
 
-<?php include 'instagram-feed.php'; ?>
-
-<?php include 'footer.php'; ?>
-<script>
-  function calculateSubTotal(qty) {
-    var price = $('#price').val();
-
-    var subtotal = qty * price;
-    $('#subtotal').html(subtotal);
-    $('#subtotal2').val(subtotal);
-    $('#grandtotal').html(subtotal);
-    $('#grandtotal2').val(subtotal);
-  }
-</script>
+<?php include_once 'footer.php'; ?>

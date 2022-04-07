@@ -16,17 +16,17 @@ if (!isset($_SESSION['login'])) {
   <meta name="author" content="Pawan">
   <meta name="robots" content="noindex">
 
-  <?php include 'favicon.php'; ?>
+  <?php include_once 'favicon.php'; ?>
   <title>Add Product</title>
-  <?php include 'admin-csslink.php'; ?>
+  <?php include_once 'admin-csslink.php'; ?>
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
-  <?php include 'admin-sidenav.php'; ?>
+  <?php include_once 'admin-sidenav.php'; ?>
 
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
 
-    <?php include 'admin-topbar.php'; ?>
+    <?php include_once 'admin-topbar.php'; ?>
 
     <div class="container-fluid py-4">
       <div class="row">
@@ -82,8 +82,8 @@ if (!isset($_SESSION['login'])) {
         </div>
       </div>
 
-      <?php include 'adminpanel_copyright.php'; ?>
+      <?php include_once 'adminpanel_copyright.php'; ?>
     </div>
   </main>
 
-  <?php include 'admin-footer.php'; ?>
+  <?php include_once 'admin-footer.php'; ?>
